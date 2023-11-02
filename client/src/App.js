@@ -1,6 +1,7 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; 
 import Navbar from './components/Navbar';
+import ProductsScreen from './screens/ProductsScreen';
 
 const App = () => {
   return (
@@ -10,8 +11,8 @@ const App = () => {
         <main>
           {
             <Switch>
-              <Route>
-                
+              <Route path='/products'>
+                <ProductsScreen />
               </Route>
             </Switch>
           }
