@@ -60,7 +60,7 @@ const Navbar = () => {
           <Link as={RouterDomLink} to='/' _hover={{ textDecoration: 'none'}}>
             <Flex alignItems='center'>
               <Icon as={TbSquareRoundedLetterD} h={6} w={6} color='orange.400' />
-              <Text fontWeight='extrabold' style={{marginTop:'15px'}}>Daddy</Text>
+              <Text fontWeight='extrabold' className='text'>Daddy</Text>
             </Flex>
           </Link>
           <HStack as='nav' spacing={4} display={{base: 'none', md: 'flex'}} m='5'>

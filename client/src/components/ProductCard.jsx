@@ -29,7 +29,7 @@ const Rating = ({ rating, numReviews }) => {
         <StarIcon size={iconSize} w={'14px'} color={rating >= 4 ? 'orange.500' : 'gray.200'} />
         <StarIcon size={iconSize} w={'14px'} color={rating >= 5 ? 'orange.500' : 'gray.200'} />
       </HStack>
-      <Text fontSize={'md'} fontWeight={'bold'} ml={'4px'} style={{marginTop:'15px'}}>
+      <Text fontSize={'md'} fontWeight={'bold'} ml={'4px'} className='text'>
         {`${numReviews} ${numReviews === 1 ? 'Review' : 'Reviews'}`}
       </Text>
     </Flex>
@@ -78,7 +78,7 @@ const ProductCard = ({ product }) => {
           )}
         </Box>
         <Flex mt='1' justifyContent='space-between' alignContent='center'>
-          <Link as={RouterDomLink} to={`/product/${product._id}`} pt='2' cursor='pointer'>
+          <Link as={RouterDomLink} to={`/product/${product._id}`} _hover={{textDecoration:'none'}} pt='2' cursor='pointer'>
             <Box fontSize='2xl' fontWeight='semibold' lineHeight='tight'>
               {product.name}
             </Box>
