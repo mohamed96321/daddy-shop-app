@@ -59,7 +59,7 @@ const ProductsScreen = () => {
         ))
       )} 
     </Wrap>
-  )
+  );
 };
 
 export default ProductsScreen

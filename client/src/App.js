@@ -5,6 +5,7 @@ import {
   Switch } from 'react-router-dom'; 
 import Navbar from './components/Navbar';
 import ProductsScreen from './screens/ProductsScreen';
+import CartScreen from './screens/CartScreen';
 
 const App = () => {
   return (
@@ -16,6 +17,9 @@ const App = () => {
             <Switch>
               <Route path='/products'>
                 <ProductsScreen />
+              </Route>
+              <Route path='/cart'>
+                <CartScreen />
               </Route>
             </Switch>
           }
