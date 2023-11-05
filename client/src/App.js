@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import ProductsScreen from './screens/ProductsScreen';
 import CartScreen from './screens/CartScreen';
 import ProductScreen from './screens/ProductScreen';
+import LandingScreen from './screens/LandingScreen';
 
 const App = () => {
   return (
@@ -24,6 +25,9 @@ const App = () => {
               </Route>
               <Route path='/cart'>
                 <CartScreen />
+              </Route>
+              <Route path='/'>
+                <LandingScreen />
               </Route>
             </Switch>
           }
