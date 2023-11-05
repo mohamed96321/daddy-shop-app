@@ -4,7 +4,7 @@ import {
   Flex,
   HStack,
   Link,
-  Icon,
+  Image,
   Text,
   useDisclosure,
   Button,
@@ -20,7 +20,8 @@ import {
   MoonIcon,
   SunIcon
 } from '@chakra-ui/icons';
-import { TbSquareRoundedLetterD } from 'react-icons/tb';
+import daddyDark from '../images/daddyDarker.png';
+import daddyLight from '../images/daddyLighter.png';
 
 const links = [
   { linkName: 'Products', path: '/products' },
@@ -59,8 +60,8 @@ const Navbar = () => {
         <HStack>
           <Link as={RouterDomLink} to='/' _hover={{ textDecoration: 'none'}}>
             <Flex alignItems='center'>
-              <Icon as={TbSquareRoundedLetterD} h={6} w={6} color='orange.400' />
-              <Text fontWeight='extrabold' className='text'>Daddy</Text>
+              <Image src={useColorModeValue(daddyLight, daddyDark)} alt='Daddy Logo' h={6} w={6} />
+              <Text fontWeight='extrabold'>Daddy</Text>
             </Flex>
           </Link>
           <HStack as='nav' spacing={4} display={{base: 'none', md: 'flex'}} m='5'>

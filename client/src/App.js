@@ -6,6 +6,7 @@ import {
 import Navbar from './components/Navbar';
 import ProductsScreen from './screens/ProductsScreen';
 import CartScreen from './screens/CartScreen';
+import ProductScreen from './screens/ProductScreen';
 
 const App = () => {
   return (
@@ -17,6 +18,9 @@ const App = () => {
             <Switch>
               <Route path='/products'>
                 <ProductsScreen />
+              </Route>
+              <Route path='/product/:id'>
+                <ProductScreen />
               </Route>
               <Route path='/cart'>
                 <CartScreen />

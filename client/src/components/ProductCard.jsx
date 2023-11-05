@@ -49,7 +49,7 @@ const Rating = ({ rating, numberOfReviews }) => {
           color={rating >= 5 ? 'orange.500' : 'gray.200'}
         />
       </HStack>
-      <Text fontSize={'md'} fontWeight={'bold'} ml={'4px'} className="text">
+      <Text fontSize={'md'} fontWeight={'bold'} ml={'4px'}>
         {`${numberOfReviews} ${numberOfReviews === 1 ? 'Review' : 'Reviews'}`}
       </Text>
     </Flex>
