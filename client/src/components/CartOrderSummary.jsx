@@ -17,11 +17,11 @@ const CartOrderSummary = () => {
   const standardShipping = Number(4.99).toFixed(2);
   const cartItems = useSelector((state) => state.cart);
   const { subtotal } = cartItems;
-  const navigate = useHistory();
+  const history = useHistory();
 
   const checkoutHandler = () => {
     setButtonLoading(true);
-    navigate('/checkout');
+    history.push('/checkout');
   };
 
   return (

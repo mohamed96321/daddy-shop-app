@@ -8,6 +8,8 @@ import ProductsScreen from './screens/ProductsScreen';
 import CartScreen from './screens/CartScreen';
 import ProductScreen from './screens/ProductScreen';
 import LandingScreen from './screens/LandingScreen';
+import LoginScreen from './screens/LoginScreen';
+import SignupScreen from './screens/SignupScreen';
 
 const App = () => {
   return (
@@ -17,6 +19,12 @@ const App = () => {
         <main>
           {
             <Switch>
+              <Route path='/login'>
+                <LoginScreen />
+              </Route>
+              <Route path='/signup'>
+                <SignupScreen />
+              </Route>
               <Route path='/products'>
                 <ProductsScreen />
               </Route>

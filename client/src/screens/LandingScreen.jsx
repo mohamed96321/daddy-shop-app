@@ -136,10 +136,6 @@ const LandingScreen = () => {
           <Box
             width={{ lg: 'sm' }}
             transform={{ base: 'translateY(-50%)', lg: 'none' }}
-            bg={{
-              base: useColorModeValue('gray.200', 'gray.700'),
-              lg: 'transparent',
-            }}
             mx={{ base: '6', md: '8', lg: '0' }}
             px={{ base: '6', md: '8', lg: '0' }}
             py={{ base: '6', md: '8', lg: '12' }}
