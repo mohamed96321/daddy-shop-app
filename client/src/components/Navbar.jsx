@@ -14,6 +14,7 @@ import {
   IconButton,
   useToast,
   Menu,
+  Icon,
   MenuButton,
   MenuList,
   MenuItem,
@@ -32,11 +33,33 @@ import daddyLight from '../images/daddyLighter.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../redux/actions/userActions';
 import { CgProfile } from 'react-icons/cg';
+import { useHistory } from 'react-router-dom';
 import { MdLogout, MdLocalShipping } from 'react-icons/md';
+import { FiShoppingCart } from 'react-icons/fi';
+
+const ShoppingCartIcon = () => {
+  const cartInfo = useSelector((state) => state.cart);
+  const { cart } = cartInfo;
+  return (
+    <Flex>
+      <Text
+        as={'sub'}
+        fontSize={'sx'}
+        color={'orange'}
+        fontStyle={'italic'}
+        fontWeight={'extrabold'}
+      >
+        {cart.length}
+      </Text>
+      <Icon as={FiShoppingCart} h="4" w="7" alignSelf={'center'} />
+      Cart
+    </Flex>
+  );
+};
 
 const links = [
   { linkName: 'Products', path: '/products' },
-  { linkName: 'ShoppingCart', path: '/cart' },
+  { linkName: <ShoppingCartIcon />, path: '/cart' },
 ];
 
 const NavLink = ({ path, children }) => (
@@ -61,10 +84,12 @@ const Navbar = () => {
   const user = useSelector((state) => state.user);
   const { userInfo } = user;
   const dispatch = useDispatch();
+  const history = useHistory();
   const toast = useToast();
 
   const logoutHandler = () => {
     dispatch(logout());
+    history.push('/products');
     toast({
       description: 'You have been logged out',
       status: 'success',
@@ -182,9 +207,11 @@ const Navbar = () => {
                 {link.linkName}
               </NavLink>
             ))}
-            {!userInfo &&<NavLink key="sign up" path="signup">
-              Sign Up
-            </NavLink>}
+            {!userInfo && (
+              <NavLink key="sign up" path="signup">
+                Sign Up
+              </NavLink>
+            )}
           </Stack>
         </Box>
       ) : null}

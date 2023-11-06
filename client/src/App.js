@@ -10,6 +10,7 @@ import ProductScreen from './screens/ProductScreen';
 import LandingScreen from './screens/LandingScreen';
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 const App = () => {
   return (
@@ -21,6 +22,9 @@ const App = () => {
             <Switch>
               <Route path='/login'>
                 <LoginScreen />
+              </Route>
+              <Route path='/profile'>
+                <ProfileScreen />
               </Route>
               <Route path='/signup'>
                 <SignupScreen />

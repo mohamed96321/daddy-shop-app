@@ -56,7 +56,7 @@ const SignupScreen = () => {
 
   return (
     <Formik
-      initialValues={{ name: '', email: '', password: '' }}
+      initialValues={{ name: '', email: '', password: '', confirmPassword: '' }}
       validationSchema={Yup.object({
         name: Yup.string()
           .min(3, 'You should enter a valid name')
@@ -114,6 +114,7 @@ const SignupScreen = () => {
                     alignItems={'center'}
                     justifyContent={'center'}
                     textAlign={'center'}
+                    bg={'none'}
                   >
                     <AlertIcon />
                     <AlertTitle>Ooops!</AlertTitle>
@@ -125,7 +126,7 @@ const SignupScreen = () => {
                     <TextField
                       type={'text'}
                       name="name"
-                      placeholder={'your name'}
+                      placeholder={'Your name'}
                       label={'Name'}
                     />
                     <TextField
@@ -137,7 +138,7 @@ const SignupScreen = () => {
                     <PasswordTextField
                       type={'password'}
                       name={'password'}
-                      placeholder={'your password'}
+                      placeholder={'Your password'}
                       label={'Password'}
                     />
                     <PasswordTextField

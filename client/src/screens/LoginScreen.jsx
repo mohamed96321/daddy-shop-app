@@ -120,6 +120,7 @@ const LoginScreen = () => {
                     alignItems={'center'}
                     justifyContent={'center'}
                     textAlign={'center'}
+                    bg={'none'}
                   >
                     <AlertIcon />
                     <AlertTitle>Ooops!</AlertTitle>
@@ -137,7 +138,7 @@ const LoginScreen = () => {
                     <PasswordTextField
                       type={'password'}
                       name={'password'}
-                      placeholder={'your password'}
+                      placeholder={'Your password'}
                       label={'Password'}
                     />
                   </FormControl>

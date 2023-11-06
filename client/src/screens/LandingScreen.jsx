@@ -61,7 +61,7 @@ const LandingScreen = () => {
                   Misguided
                 </Heading>
                 <Heading size="xl" fontWeight="normal">
-                  Refresh your wardrobe
+                  Refresh your wardrobe with a new stylish collection
                 </Heading>
               </Stack>
               <HStack spacing="3">
@@ -103,7 +103,6 @@ const LandingScreen = () => {
           </Flex>
         </Stack>
       </Box>
-      <div style={{padding: '20px'}} />
       <Box
         maxW="7xl"
         mx="auto"
@@ -146,10 +145,10 @@ const LandingScreen = () => {
                   size="xl"
                   color={useColorModeValue('gray.700', 'orange.400')}
                 >
-                  Relax & Clear Mind
+                  Clear your mind
                 </Heading>
                 <Heading size="xl" fontWeight="normal">
-                  See new tech & gaming
+                  See the new gaming collection
                 </Heading>
               </Stack>
               <HStack spacing="3">

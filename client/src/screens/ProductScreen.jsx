@@ -81,7 +81,13 @@ const ProductScreen = () => {
           />
         </Stack>
       ) : error ? (
-        <Alert status="error">
+        <Alert
+          status="error"
+          flexDirection={'column'}
+          alignItems={'center'}
+          textAlign={'center'}
+          bg={'none'}
+        >
           <AlertIcon />
           <AlertTitle>Ooops!</AlertTitle>
           <AlertDescription>{error}</AlertDescription>
@@ -205,7 +211,6 @@ const ProductScreen = () => {
                 direction={'column'}
                 align={'center'}
                 flex={'1'}
-                _dark={{ bg: 'gray.900' }}
               >
                 <Image src={product.image} mb={'30px'} alt={product.name} />
               </Flex>

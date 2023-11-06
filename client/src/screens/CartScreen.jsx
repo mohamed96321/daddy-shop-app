@@ -23,7 +23,8 @@ const CartScreen = () => {
   const cartInfo = useSelector((state) => state.cart);
   const { loading, error, cart } = cartInfo;
 
-  const getHeadingContent = () => (cart.length === 1 ? '(1 Item)' : `(${cart.length} Items)`)
+  const getHeadingContent = () =>
+    cart.length === 1 ? '(1 Item)' : `(${cart.length} Items)`;
 
   useEffect(() => {
     document.title = 'Shopping Cart | Daddy';
@@ -31,7 +32,7 @@ const CartScreen = () => {
     return () => {
       document.title = 'Daddy';
     };
-  }, [])
+  }, []);
 
   return (
     <Wrap spacing="30px" justify="center" minHeight="100vh">
@@ -47,13 +48,25 @@ const CartScreen = () => {
           />
         </Stack>
       ) : error ? (
-        <Alert status="error">
+        <Alert
+          status="error"
+          flexDirection={'column'}
+          alignItems={'center'}
+          textAlign={'center'}
+          bg={'none'}
+        >
           <AlertIcon />
           <AlertTitle>Ooops!</AlertTitle>
           <AlertDescription>{error}</AlertDescription>
         </Alert>
       ) : cart.length <= 0 ? (
-        <Alert status="warning">
+        <Alert
+          status="warning"
+          flexDirection={'column'}
+          alignItems={'center'}
+          textAlign={'center'}
+          bg={'none'}
+        >
           <AlertIcon />
           <AlertTitle>Your cart is empty!</AlertTitle>
           <AlertDescription>
@@ -80,7 +93,7 @@ const CartScreen = () => {
               </Heading>
               <Stack spacing={'6'}>
                 {cart.map((cartItem) => (
-                  <CartItem key={cartItem.id} cartItem={cartItem}/>
+                  <CartItem key={cartItem.id} cartItem={cartItem} />
                 ))}
               </Stack>
             </Stack>
@@ -92,7 +105,7 @@ const CartScreen = () => {
                   as={RouterDomLink}
                   to="/products"
                   color={mode('orange.500', 'orange.200')}
-                  _hover={{textDecoration: 'none'}}
+                  _hover={{ textDecoration: 'none' }}
                 >
                   Continue Shopping
                 </Link>
