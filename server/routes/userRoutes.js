@@ -12,4 +12,6 @@ router.put(
   userController.updateUserProfile
 );
 
+router.get('/:id', isAuthMiddleware.protectRoutes, userController.getUserOrders);
+
 module.exports = router;

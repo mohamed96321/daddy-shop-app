@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const asyncHandler = require('express-async-handler');
 const jwt = require('jsonwebtoken');
+const Order = require('../models/Order');
 
 const genToken = (id) => {
   return jwt.sign({ id }, process.env.TOKEN_SECRET, { expiresIn: '60d' });
@@ -78,5 +79,15 @@ exports.updateUserProfile = asyncHandler(async(req, res, next) => {
   } else {
     res.status(404);
     throw new Error('User not found!');
+  }
+});
+
+exports.getUserOrders = asyncHandler(async (req, res, next) => {
+  const orders = await Order.find({user: req.params.id});
+  if (orders) {
+    res.json(orders);
+  } else {
+    res.status(404);
+    throw new Error('No orders found');
   }
 });

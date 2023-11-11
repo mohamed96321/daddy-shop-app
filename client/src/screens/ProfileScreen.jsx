@@ -1,22 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   Box,
   Button,
   FormControl,
   Heading,
-  HStack,
   Stack,
-  Text,
   Alert,
   AlertDescription,
   AlertTitle,
+  AlertIcon,
   Flex,
   Card,
   CardHeader,
   CardBody,
   StackDivider,
   useToast,
-  useColorModeValue,
+  useColorModeValue as mode,
 } from '@chakra-ui/react';
 import TextField from '../components/TextField';
 import PasswordTextField from '../components/PasswordTextField';
@@ -43,8 +42,9 @@ const ProfileScreen = () => {
         status: 'success',
         isClosable: true,
       });
+      dispatch(resetUpdateSuccess());
     }
-  }, [updateSuccess, toast]);
+  }, [updateSuccess, toast, dispatch]);
 
   useEffect(() => {
     document.title = 'Profile | Daddy';
@@ -77,7 +77,6 @@ const ProfileScreen = () => {
           .oneOf([Yup.ref('password'), null], 'Passwords must match.'),
       })}
       onSubmit={(values) => {
-        dispatch(resetUpdateSuccess());
         dispatch(
           updateProfile(
             userInfo._id,
@@ -153,7 +152,7 @@ const ProfileScreen = () => {
                   </Stack>
                   <Stack spacing={'6'}>
                     <Button
-                      color={useColorModeValue('gray.900', 'orange')}
+                      color={mode('gray.900', 'orange')}
                       size={'lg'}
                       fontSize={'md'}
                       isLoading={loading}
