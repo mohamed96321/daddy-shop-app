@@ -34,7 +34,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../redux/actions/userActions';
 import { CgProfile } from 'react-icons/cg';
 import { useHistory } from 'react-router-dom';
-import { MdLogout, MdLocalShipping } from 'react-icons/md';
+import { MdLogout, MdLocalShipping, MdOutlineAdminPanelSettings } from 'react-icons/md';
 import { FiShoppingCart } from 'react-icons/fi';
 
 const ShoppingCartIcon = () => {
@@ -167,6 +167,15 @@ const Navbar = () => {
                     <MdLocalShipping />
                     <Text ml={'2'}>Your Orders</Text>
                   </MenuItem>
+                  {userInfo.isAdmin === 'true' && (
+                    <>
+                      <MenuDivider />
+                      <MenuItem as={RouterDomLink} to='/admin-dashboard'>
+                        <MdOutlineAdminPanelSettings />
+                        <Text ml={'2'}>Admin Dashboard</Text>
+                      </MenuItem>
+                    </>
+                  )}
                   <MenuDivider />
                   <MenuItem onClick={logoutHandler}>
                     <MdLogout />

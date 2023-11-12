@@ -15,6 +15,7 @@ import SignupScreen from './screens/SignupScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import CheckoutScreen from './screens/CheckoutScreen';
 import YourOrdersScreen from 'screens/YourOrdersScreen';
+import AdminDashboard from 'screens/AdminDashboardScreen';
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
               <Route path="/" component={LandingScreen} exact />
               <Route path="/checkout" component={CheckoutScreen} exact />
               <Route path="/your-orders" component={YourOrdersScreen} exact />
+              <Route path="/admin-dashboard" component={AdminDashboard} exact />
               <Redirect to="/products" />
             </Switch>
           }

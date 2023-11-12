@@ -33,7 +33,7 @@ const YourOrdersScreen = () => {
     if (userInfo) {
       dispatch(getUserOrders());
     }
-  }, []);
+  }, [userInfo, dispatch]);
 
   useEffect(() => {
     document.title = 'Your Orders | Daddy';

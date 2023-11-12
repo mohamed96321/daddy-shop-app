@@ -91,3 +91,18 @@ exports.getUserOrders = asyncHandler(async (req, res, next) => {
     throw new Error('No orders found');
   }
 });
+
+exports.getUsers = asyncHandler(async (req, res, next) => {
+  const users = await User.find({});
+  res.json(users);
+});
+
+exports.deleteUser = asyncHandler(async (req, res) => {
+  try {
+    const user = await User.findByIdAndDelete(req.params.id);
+    res.json(user);
+  } catch (error) {
+    res.status(404);
+    throw new Error('This user could not be found.');
+  }
+});

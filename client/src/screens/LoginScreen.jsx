@@ -74,7 +74,7 @@ const LoginScreen = () => {
           .email('Invalid email.')
           .required('An email is required.'),
         password: Yup.string()
-          .min(6, 'Password is too short - must contain at least 1 character.')
+          .min(5, 'Password is too short - must contain at least 1 character.')
           .required('Password is required'),
       })}
       onSubmit={(values) => {

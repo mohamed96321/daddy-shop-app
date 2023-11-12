@@ -11,7 +11,23 @@ router.put(
   isAuthMiddleware.protectRoutes,
   userController.updateUserProfile
 );
+router.get(
+  '/:id',
+  isAuthMiddleware.protectRoutes,
+  userController.getUserOrders
+);
 
-router.get('/:id', isAuthMiddleware.protectRoutes, userController.getUserOrders);
+router.get(
+  '/',
+  isAuthMiddleware.protectRoutes,
+  isAuthMiddleware.admin,
+  userController.getUsers
+);
+router.delete(
+  '/:id',
+  isAuthMiddleware.protectRoutes,
+  isAuthMiddleware.admin,
+  userController.deleteUser
+);
 
 module.exports = router;
