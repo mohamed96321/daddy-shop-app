@@ -19,7 +19,7 @@ import {
   Wrap,
   useToast,
 } from '@chakra-ui/react';
-import { CheckCircleIcon, DeleteIcon } from '@chakra-ui/icons';
+import { DeleteIcon } from '@chakra-ui/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getAllUsers,
@@ -93,7 +93,6 @@ const UsersTab = () => {
                   <Th>Name</Th>
                   <Th>Email</Th>
                   <Th>Registered</Th>
-                  <Th>Admin</Th>
                   <Th>Action</Th>
                 </Tr>
               </Thead>
@@ -107,20 +106,12 @@ const UsersTab = () => {
                       <Td>{user.email}</Td>
                       <Td>{new Date(user.createdAt).toDateString()}</Td>
                       <Td>
-                        {user.isAdmin === 'true' ? (
-                          <CheckCircleIcon color={'orange.500'} />
-                        ) : (
-                          ''
-                        )}
-                      </Td>
-                      <Td>
                         <Button
                           isDisabled={user._id === userInfo._id}
                           variant={'outline'}
                           onClick={() => openDeleteConfirmBox(user)}
                         >
                           <DeleteIcon mr={'5px'} />
-                          Remove User
                         </Button>
                       </Td>
                     </Tr>
