@@ -8,7 +8,6 @@ import {
   Badge,
   Box,
   Link,
-  Divider,
   useDisclosure,
 } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -148,7 +147,7 @@ const CheckoutOrderSummary = () => {
             to="/products"
             ml={'1'}
             _hover={{ textDecoration: 'none' }}
-            color={mode('orange.500')}
+            color={'orange.500'}
           >
             Continue Shopping
           </Link>

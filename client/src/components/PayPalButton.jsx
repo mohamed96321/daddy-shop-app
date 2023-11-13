@@ -1,10 +1,14 @@
-import React from 'react';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import PAYPAL_CLIENT_ID from 'client_id';
 
-const PayPalButton = ({ total, onPaymentSuccess, onPaymentError, disabled }) => {
+const PayPalButton = ({
+  total,
+  disabled,
+  onPaymentSuccess,
+  onPaymentError,
+}) => {
   return (
-    <PayPalScriptProvider options={{ "client-id": PAYPAL_CLIENT_ID }}>
+    <PayPalScriptProvider options={{ clientId: PAYPAL_CLIENT_ID }}>
       <PayPalButtons
         disabled={disabled}
         forceReRender={[total()]}
@@ -20,7 +24,7 @@ const PayPalButton = ({ total, onPaymentSuccess, onPaymentError, disabled }) => 
           });
         }}
         onApprove={async (data, actions) => {
-          const details = await actions.order.capture();
+          await actions.order.capture();
           onPaymentSuccess(data);
         }}
         onError={(err) => {
