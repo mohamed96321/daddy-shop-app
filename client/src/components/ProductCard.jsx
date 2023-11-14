@@ -50,7 +50,7 @@ const Rating = ({ rating, numberOfReviews }) => {
         />
       </HStack>
       <Text fontSize={'md'} fontWeight={'bold'} ml={'4px'}>
-        {`${numberOfReviews} ${numberOfReviews === 1 ? 'Review' : 'Reviews'}`}
+        {`${numberOfReviews} ${numberOfReviews === 0 ? 'Review' : 'Reviews'}`}
       </Text>
     </Flex>
   );
@@ -156,7 +156,7 @@ const ProductCard = ({ product }) => {
           <Box as="span" color={'gray.600'} fontSize={'lg'}>
             $
           </Box>
-          {product.price.toFixed(2)}
+          {Number(product.price).toFixed(2)}
         </Box>
         <Tooltip
           label="Add to cart"

@@ -13,6 +13,8 @@ import { Redirect, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import UsersTab from 'components/UsersTab';
 import OrdersTab from 'components/OrdersTab';
+import ProductsTab from 'components/ProductsTab';
+import ReviewsTab from 'components/ReviewsTab';
 
 const AdminDashboard = () => {
   const user = useSelector((state) => state.user);
@@ -37,8 +39,8 @@ const AdminDashboard = () => {
           <Tabs size={'md'} variant={'enclosed'}>
             <TabList>
               <Tab>Users</Tab>
-              <Tab>Orders</Tab>
               <Tab>Products</Tab>
+              <Tab>Orders</Tab>
               <Tab>Reviews</Tab>
             </TabList>
             <TabPanels>
@@ -46,7 +48,13 @@ const AdminDashboard = () => {
                 <UsersTab />
               </TabPanel>
               <TabPanel>
+                <ProductsTab />
+              </TabPanel>
+              <TabPanel>
                <OrdersTab />
+              </TabPanel>
+              <TabPanel>
+               <ReviewsTab />
               </TabPanel>
             </TabPanels>
           </Tabs>

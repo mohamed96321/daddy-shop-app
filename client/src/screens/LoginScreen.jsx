@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
   Box,
-  Checkbox,
   Container,
   FormControl,
   Heading,
@@ -10,7 +9,6 @@ import {
   Text,
   Button,
   useBreakpointValue,
-  useColorModeValue,
   Alert,
   AlertIcon,
   AlertTitle,
@@ -74,7 +72,7 @@ const LoginScreen = () => {
           .email('Invalid email.')
           .required('An email is required.'),
         password: Yup.string()
-          .min(5, 'Password is too short - must contain at least 1 character.')
+          .min(5, 'Password is too short - must contain at least 5 character.')
           .required('Password is required'),
       })}
       onSubmit={(values) => {
@@ -124,7 +122,7 @@ const LoginScreen = () => {
                   >
                     <AlertIcon />
                     <AlertTitle>Ooops!</AlertTitle>
-                    <AlertDescription>{error}</AlertDescription>
+                    <AlertDescription>Email or Password not correct</AlertDescription>
                   </Alert>
                 )}
                 <Stack spacing={'5'}>

@@ -109,9 +109,10 @@ const UsersTab = () => {
                         <Button
                           isDisabled={user._id === userInfo._id}
                           variant={'outline'}
+                          colorScheme='red'
                           onClick={() => openDeleteConfirmBox(user)}
                         >
-                          <DeleteIcon mr={'5px'} />
+                          <DeleteIcon />
                         </Button>
                       </Td>
                     </Tr>

@@ -4,8 +4,8 @@ const isAuthMiddleware = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 
-router.post('/login', userController.login);
-router.post('/signup', userController.register);
+router.post('/login', userController.loginUser);
+router.post('/signup', userController.registerUser);
 router.put(
   '/profile/:id',
   isAuthMiddleware.protectRoutes,

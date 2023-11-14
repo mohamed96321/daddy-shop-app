@@ -7,7 +7,7 @@ const genToken = (id) => {
   return jwt.sign({ id }, process.env.TOKEN_SECRET, { expiresIn: '60d' });
 };
 
-exports.login = asyncHandler(async (req, res, next) => {
+exports.loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
 
@@ -21,18 +21,18 @@ exports.login = asyncHandler(async (req, res, next) => {
       createdAt: user.createdAt,
     });
   } else {
-    res.status(401);
-    throw new Error('Invalid email or password');
+    res.status(401).send('Invalid Email or Password');
+    throw new Error('User not found.');
   }
 });
 
-exports.register = asyncHandler(async (req, res, next) => {
-  const { email, name, password } = req.body;
+// POST register user
+exports.registerUser = asyncHandler(async (req, res) => {
+  const { name, email, password } = req.body;
 
   const userExists = await User.findOne({ email });
   if (userExists) {
-    res.json(400);
-    throw new Error('We already have an account with that email address.');
+    res.status(400).send('We already have an account with that email address.');
   }
 
   const user = await User.create({
@@ -48,13 +48,13 @@ exports.register = asyncHandler(async (req, res, next) => {
       email: user.email,
       isAdmin: user.isAdmin,
       token: genToken(user._id),
+      createdAt: user.createdAt,
     });
   } else {
-    res.json(400);
-    throw new Error('Invalid user data.');
+    res.status(400).send('We could not register you.');
+    throw new Error('Something went wrong. Please check your data and try again.');
   }
 });
-
 
 exports.updateUserProfile = asyncHandler(async(req, res, next) => {
   const user = await User.findById(req.params.id);

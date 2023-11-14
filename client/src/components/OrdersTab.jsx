@@ -20,6 +20,7 @@ import {
   Wrap,
   useToast,
   Flex,
+  Tooltip,
 } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 import { TbTruckDelivery } from 'react-icons/tb';
@@ -105,14 +106,12 @@ const OrdersTab = () => {
               <Thead>
                 <Tr>
                   <Th>Date</Th>
-                  <Th>Name</Th>
-                  <Th>Email</Th>
+                  <Th>Name & Email</Th>
                   <Th>Shipping Infromation</Th>
                   <Th>Items Ordered</Th>
                   <Th>Payment Method</Th>
-                  <Th>Shipping Price</Th>
-                  <Th>Total</Th>
-                  <Th>Delivered</Th>
+                  <Th>Total & Shipping Price</Th>
+                  <Th>Delivery</Th>
                   <Th>Action</Th>
                 </Tr>
               </Thead>
@@ -121,15 +120,17 @@ const OrdersTab = () => {
                   orders.map((order) => (
                     <Tr key={order._id}>
                       <Td>{new Date(order.createdAt).toDateString()}</Td>
-                      <Td>{order.username}</Td>
-                      <Td>{order.email}</Td>
+                      <Td>
+                        <Text><i>{order.username}</i></Text>
+                        <Text><i>{order.email}</i></Text>
+                      </Td>
                       <Td>
                         <Text>
                           <i>Address:</i> {order.shippingAddress.address}
                         </Text>
                         <Text>
-                          <i>City:</i> {order.shippingAddress.postalCode}{' '}
-                          {order.shippingAddress.city}
+                          <i>City:</i> {order.shippingAddress.postalCode}
+                          , {order.shippingAddress.city}
                         </Text>
                         <Text>
                           <i>Country:</i> {order.shippingAddress.country}
@@ -137,32 +138,42 @@ const OrdersTab = () => {
                       </Td>
                       <Td>
                         {order.orderItems.map((item) => (
-                          <Text>
+                          <Text key={item._id}>
                             {item.qty} x {item.name}
                           </Text>
                         ))}
                       </Td>
                       <Td>{order.paymentMethod}</Td>
-                      <Td>${order.shippingPrice}</Td>
-                      <Td>${order.totalPrice}</Td>
-                      <Td>{order.isDelivered ? 'Delivered' : 'Pending'}</Td>
+                      <Td>
+                        <Text>
+                          <i>Total: ${order.totalPrice}</i>
+                        </Text> 
+                        <Text>
+                          <i>Shipping: ${order.shippingPrice}</i>
+                        </Text>
+                      </Td>
+                      <Td>{order.isDelivered ? 'Done' : 'Pending'}</Td>
                       <Td>
                         <Flex direction={'column'}>
-                          <Button
-                            variant={'outline'}
-                            onClick={() => openDeleteConfirmBox(order)}
-                          >
-                            <DeleteIcon />
-                          </Button>
-                          {!order.isDelivered && (
+                          <Tooltip label='Delete Order'>
                             <Button
-                              mt={'4px'}
                               variant={'outline'}
-                              onClick={() => onSetToDelivered(order)}
+                              colorScheme='red'
+                              onClick={() => openDeleteConfirmBox(order)}
                             >
-                              <TbTruckDelivery />
-                              <Text ml={'5px'}>Delivered</Text>
+                              <DeleteIcon />
                             </Button>
+                          </Tooltip>
+                          {!order.isDelivered && (
+                            <Tooltip label='Set Order is delivered'>
+                              <Button
+                                mt={'4px'}
+                                variant={'outline'}
+                                onClick={() => onSetToDelivered(order)}
+                              >
+                                <TbTruckDelivery />
+                              </Button>
+                            </Tooltip>
                           )}
                         </Flex>
                       </Td>

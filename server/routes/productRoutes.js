@@ -11,5 +11,30 @@ router.post(
   isAuthMiddleware.protectRoutes,
   productController.createProductReview
 );
+router.put(
+  '/',
+  isAuthMiddleware.protectRoutes,
+  isAuthMiddleware.admin,
+  productController.updateProduct
+);
+router.delete(
+  '/:id',
+  isAuthMiddleware.protectRoutes,
+  isAuthMiddleware.admin,
+  productController.deleteProduct
+);
+router.post(
+  '/',
+  isAuthMiddleware.protectRoutes,
+  isAuthMiddleware.admin,
+  productController.createNewProduct
+);
+
+router.put(
+  '/:productId/:reviewId',
+  isAuthMiddleware.protectRoutes,
+  isAuthMiddleware.admin,
+  productController.removeProductReview
+);
 
 module.exports = router;

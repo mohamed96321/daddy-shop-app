@@ -23,7 +23,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
         'Content-Type': 'application/json',
       },
     };
-    const { data } = await axios.post('api/orders', preparedOrder, config);
+    await axios.post('api/orders', preparedOrder, config);
   } catch (error) {
     dispatch(
       setError(

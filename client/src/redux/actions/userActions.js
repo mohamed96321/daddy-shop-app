@@ -38,11 +38,6 @@ export const login = (email, password) => async (dispatch) => {
   }
 };
 
-export const logout = () => (dispatch) => {
-  localStorage.removeItem('userInfo');
-  dispatch(userLogout());
-};
-
 export const register = (name, email, password) => async (dispatch) => {
   dispatch(setLoading(true));
   try {
@@ -70,6 +65,11 @@ export const register = (name, email, password) => async (dispatch) => {
       )
     );
   }
+};
+
+export const logout = () => (dispatch) => {
+  localStorage.removeItem('userInfo');
+  dispatch(userLogout());
 };
 
 export const updateProfile =

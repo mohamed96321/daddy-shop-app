@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   Box,
-  Checkbox,
   Container,
   FormControl,
   Heading,
@@ -10,7 +9,6 @@ import {
   Text,
   Button,
   useBreakpointValue,
-  useColorModeValue,
   Alert,
   AlertIcon,
   AlertTitle,
@@ -65,7 +63,7 @@ const SignupScreen = () => {
           .email('Invalid email.')
           .required('An email is required.'),
         password: Yup.string()
-          .min(5, 'Password is too short - must contain at least 1 character.')
+          .min(5, 'Password is too short - must contain at least 5 character.')
           .required('Password is required'),
         confirmPassword: Yup.string()
           .required('Password is required')
@@ -118,7 +116,7 @@ const SignupScreen = () => {
                   >
                     <AlertIcon />
                     <AlertTitle>Ooops!</AlertTitle>
-                    <AlertDescription>{error}</AlertDescription>
+                    <AlertDescription>Email already exists, try another one</AlertDescription>
                   </Alert>
                 )}
                 <Stack spacing={'5'}>

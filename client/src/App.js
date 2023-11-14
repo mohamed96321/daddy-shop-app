@@ -16,6 +16,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import CheckoutScreen from './screens/CheckoutScreen';
 import YourOrdersScreen from 'screens/YourOrdersScreen';
 import AdminDashboard from 'screens/AdminDashboardScreen';
+import OrderSuccessScreen from 'screens/OrderSuccessScreen';
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
               <Route path="/" component={LandingScreen} exact />
               <Route path="/checkout" component={CheckoutScreen} exact />
               <Route path="/your-orders" component={YourOrdersScreen} exact />
+              <Route path="/order-success" component={OrderSuccessScreen} exact />
               <Route path="/admin-dashboard" component={AdminDashboard} exact />
               <Redirect to="/products" />
             </Switch>
